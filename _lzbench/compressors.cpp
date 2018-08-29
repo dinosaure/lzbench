@@ -27,12 +27,12 @@ int64_t lzbench_return_0(char *inbuf, size_t insize, char *outbuf, size_t outsiz
 
 int64_t lzbench_dcpr_compress(char *inbuf, size_t insize, char *outbuf, size_t outsize, size_t level, size_t, char*)
 {
-  return dcpr_deflate(inbuf, insize, outbuf, outsize, level, 0, NULL);
+  return dcpr_deflate(inbuf, insize, outbuf, outsize, level);
 }
 
 int64_t lzbench_dcpr_decompress(char* inbuf, size_t insize, char* outbuf, size_t outsize, size_t, size_t, char*)
 {
-  return dcpr_inflate(inbuf, insize, outbuf, outsize, 0, 0, NULL);
+  return dcpr_inflate(inbuf, insize, outbuf, outsize);
 }
 
 #endif
