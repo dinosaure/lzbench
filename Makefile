@@ -51,7 +51,7 @@ else
 		DONT_BUILD_LZHAM ?= 1
 		DONT_BUILD_CSC ?= 1
 	else
-		LDFLAGS	+= -lrt -static
+		LDFLAGS	+= -lrt
 	endif
 	LDFLAGS	+= -lpthread
 endif
