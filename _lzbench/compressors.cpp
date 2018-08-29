@@ -1441,7 +1441,7 @@ int64_t lzbench_wflz_decompress(char *inbuf, size_t insize, char *outbuf, size_t
 
 
 
-#ifndef BENCH_REMOVE_XZ
+#ifndef BENCH_REMOVE_XPACK
 #include "xpack/lib/libxpack.h" 
 
 typedef struct {
@@ -1781,6 +1781,7 @@ int64_t lzbench_zstd_compress(char *inbuf, size_t insize, char *outbuf, size_t o
 
 #if 1
     zstd_params->zparams = ZSTD_getParams(level, insize, 0);
+    ZSTD_CCtx_setParameter(zstd_params->cctx, ZSTD_p_compressionLevel, level);
     zstd_params->zparams.fParams.contentSizeFlag = 1;
 
     if (windowLog && zstd_params->zparams.cParams.windowLog > windowLog) {
