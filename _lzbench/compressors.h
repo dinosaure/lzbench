@@ -7,7 +7,13 @@
 int64_t lzbench_memcpy(char *inbuf, size_t insize, char *outbuf, size_t outsize, size_t , size_t, char* );
 int64_t lzbench_return_0(char *inbuf, size_t insize, char *outbuf, size_t outsize, size_t , size_t, char* );
 
-
+#ifndef BENCH_REMOVE_DCPR
+  int64_t lzbench_dcpr_compress(char *inbuf, size_t insize, char *outbuf, size_t outsize, size_t level, size_t, char*);
+  int64_t lzbench_dcpr_decompress(char *inbuf, size_t insize, char *outbuf, size_t outsize, size_t, size_t, char*);
+#else
+  #define lzbench_dcpr_compress NULL
+  #define lzbench_dcpr_decompress NULL
+#endif
 
 #ifndef BENCH_REMOVE_BLOSCLZ
 	int64_t lzbench_blosclz_compress(char *inbuf, size_t insize, char *outbuf, size_t outsize, size_t level, size_t, char*);

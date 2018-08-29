@@ -22,6 +22,20 @@ int64_t lzbench_return_0(char *inbuf, size_t insize, char *outbuf, size_t outsiz
     return 0;
 }
 
+#ifndef BENCH_REMOVE_DCPR
+#include "dcpr.h"
+
+int64_t lzbench_dcpr_compress(char *inbuf, size_t insize, char *outbuf, size_t outsize, size_t level, size_t, char*)
+{
+  return dcpr_deflate(inbuf, insize, outbuf, outsize, level, 0, NULL);
+}
+
+int64_t lzbench_dcpr_decompress(char* inbuf, size_t insize, char* outbuf, size_t outsize, size_t, size_t, char*)
+{
+  return dcpr_inflate(inbuf, insize, outbuf, outsize, 0, 0, NULL);
+}
+
+#endif
 
 #ifndef BENCH_REMOVE_BLOSCLZ
 #include "blosclz/blosclz.h"

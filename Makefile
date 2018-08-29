@@ -57,9 +57,10 @@ else
 endif
 
 
-DEFINES     += $(addprefix -I$(SOURCE_PATH),. zstd/lib zstd/lib/common brotli/include xpack/common libcsc)
+DEFINES     += $(addprefix -I$(SOURCE_PATH),. decompress/_build/generated zstd/lib zstd/lib/common brotli/include xpack/common libcsc)
 DEFINES     += -DHAVE_CONFIG_H
 CODE_FLAGS  += -Wno-unknown-pragmas -Wno-sign-compare -Wno-conversion
+OCAML_FLAGS += -I$(shell ocamlopt -where)
 OPT_FLAGS   ?= -fomit-frame-pointer -fstrict-aliasing -ffast-math
 
 
@@ -71,10 +72,12 @@ else
 	OPT_FLAGS_O3 = $(OPT_FLAGS) -O3 -DNDEBUG
 endif
 
-CFLAGS = $(MOREFLAGS) $(CODE_FLAGS) $(OPT_FLAGS_O3) $(DEFINES)
-CFLAGS_O2 = $(MOREFLAGS) $(CODE_FLAGS) $(OPT_FLAGS_O2) $(DEFINES)
-LDFLAGS += $(MOREFLAGS)
-
+CFLAGS = $(MOREFLAGS) $(OCAML_FLAGS) $(CODE_FLAGS) $(OPT_FLAGS_O3) $(DEFINES)
+CFLAGS_O2 = $(MOREFLAGS) $(OCAML_FLAGS) $(CODE_FLAGS) $(OPT_FLAGS_O2) $(DEFINES)
+LDFLAGS += $(MOREFLAGS) -Wl,-rpath=./decompress/_build \
+  -L./decompress/_build \
+  -I./decompress/_build/generated/ \
+  -ldcpr
 
 LZO_FILES = lzo/lzo1.o lzo/lzo1a.o lzo/lzo1a_99.o lzo/lzo1b_1.o lzo/lzo1b_2.o lzo/lzo1b_3.o lzo/lzo1b_4.o lzo/lzo1b_5.o
 LZO_FILES += lzo/lzo1b_6.o lzo/lzo1b_7.o lzo/lzo1b_8.o lzo/lzo1b_9.o lzo/lzo1b_99.o lzo/lzo1b_9x.o lzo/lzo1b_cc.o
