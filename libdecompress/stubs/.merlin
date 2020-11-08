@@ -1,0 +1,24 @@
+EXCLUDE_QUERY_DIR
+B /home/dinosaure/.opam/4.10.0/lib/bigarray-compat
+B /home/dinosaure/.opam/4.10.0/lib/bytes
+B /home/dinosaure/.opam/4.10.0/lib/checkseum
+B /home/dinosaure/.opam/4.10.0/lib/checkseum/c
+B /home/dinosaure/.opam/4.10.0/lib/ctypes
+B /home/dinosaure/.opam/4.10.0/lib/integers
+B /home/dinosaure/.opam/4.10.0/lib/ocaml
+B /home/dinosaure/.opam/4.10.0/lib/optint
+B ../_build/default/decompress/lib/.de.objs/byte
+B ../_build/default/decompress/lib/.zl.objs/byte
+B ../_build/default/stubs/.decompress.eobjs/byte
+B ../_build/default/stubs/.gen_decompress_bindings.objs/byte
+S /home/dinosaure/.opam/4.10.0/lib/bigarray-compat
+S /home/dinosaure/.opam/4.10.0/lib/bytes
+S /home/dinosaure/.opam/4.10.0/lib/checkseum
+S /home/dinosaure/.opam/4.10.0/lib/checkseum/c
+S /home/dinosaure/.opam/4.10.0/lib/ctypes
+S /home/dinosaure/.opam/4.10.0/lib/integers
+S /home/dinosaure/.opam/4.10.0/lib/ocaml
+S /home/dinosaure/.opam/4.10.0/lib/optint
+S ../decompress/lib
+S .
+FLG -w -40 -open Dune__exe -w -40

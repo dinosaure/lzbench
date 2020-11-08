@@ -87,6 +87,9 @@ else
 	OPT_FLAGS_O3 = $(OPT_FLAGS) -O3 -DNDEBUG
 endif
 
+# decompress
+LDFLAGS += -L./libdecompress/_build/default/stubs -ldecompress -ldl -lm
+
 CFLAGS = $(MOREFLAGS) $(CODE_FLAGS) $(OPT_FLAGS_O3) $(DEFINES)
 CFLAGS_O2 = $(MOREFLAGS) $(CODE_FLAGS) $(OPT_FLAGS_O2) $(DEFINES)
 LDFLAGS += $(MOREFLAGS)

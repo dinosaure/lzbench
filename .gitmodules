@@ -1,0 +1,3 @@
+[submodule "libdecompress/decompress"]
+	path = libdecompress/decompress
+	url = https://github.com/mirage/decompress

@@ -1523,6 +1523,25 @@ int64_t lzbench_zlib_decompress(char *inbuf, size_t insize, char *outbuf, size_t
 
 
 
+#ifndef BENCH_REMOVE_DECOMPRESS
+#include "libdecompress/_build/default/stubs/decompress.h"
+
+int64_t lzbench_decompress_compress(char *inbuf, size_t insize, char *outbuf, size_t outsize, size_t level, size_t, char*)
+{
+	int res = decompress_deflate(inbuf, insize, outbuf, outsize, level);
+	return res;
+}
+
+int64_t lzbench_decompress_decompress(char *inbuf, size_t insize, char *outbuf, size_t outsize, size_t, size_t, char*)
+{
+        int res = decompress_inflate(inbuf, insize, outbuf, outsize);
+	return res;
+}
+
+#endif
+
+
+
 #if !defined(BENCH_REMOVE_SLZ) && !defined(BENCH_REMOVE_ZLIB)
 extern "C"
 {

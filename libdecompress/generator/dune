@@ -1,0 +1,3 @@
+(executable
+ (name generate)
+ (libraries gen_decompress_bindings))
