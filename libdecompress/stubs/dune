@@ -12,6 +12,7 @@
  (name decompress)
  (modules decompress apply_bindings decompress_bindings)
  (forbidden_libraries unix)
+ (flags (:standard -w -27))
  (foreign_stubs
   (language c) (names init gen_decompress))
  (ocamlopt_flags -ccopt -static -cclib -L/usr/lib/x86_64-linux-gnu)
