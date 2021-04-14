@@ -1538,6 +1538,18 @@ int64_t lzbench_decompress_decompress(char *inbuf, size_t insize, char *outbuf, 
 	return res;
 }
 
+int64_t lzbench_decompress_ns_compress(char *inbuf, size_t insize, char *outbuf, size_t outsize, size_t level, size_t, char*)
+{
+    int res = decompress_ns_deflate(inbuf, insize, outbuf, outsize, level);
+    return res;
+}
+
+int64_t lzbench_decompress_ns_decompress(char *inbuf, size_t insize, char *outbuf, size_t outsize, size_t, size_t, char*)
+{
+        int res = decompress_ns_inflate(inbuf, insize, outbuf, outsize);
+    return res;
+}
+
 #endif
 
 

@@ -473,9 +473,13 @@ int64_t lzbench_return_0(char *inbuf, size_t insize, char *outbuf, size_t outsiz
 #ifndef BENCH_REMOVE_DECOMPRESS
 	int64_t lzbench_decompress_compress(char *inbuf, size_t insize, char *outbuf, size_t outsize, size_t, size_t, char*);
 	int64_t lzbench_decompress_decompress(char *inbuf, size_t insize, char *outbuf, size_t outsize, size_t, size_t, char*);
+	int64_t lzbench_decompress_ns_compress(char *inbuf, size_t insize, char *outbuf, size_t outsize, size_t, size_t, char*);
+	int64_t lzbench_decompress_ns_decompress(char *inbuf, size_t insize, char *outbuf, size_t outsize, size_t, size_t, char*);
 #else
 	#define lzbench_decompress_compress NULL
 	#define lzbench_decompress_decompress NULL
+	#define lzbench_decompress_ns_compress NULL
+	#define lzbench_decompress_ns_decompress NULL
 #endif
 
 #ifndef BENCH_REMOVE_ZLING

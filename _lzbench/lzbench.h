@@ -137,7 +137,7 @@ typedef struct
 
 
 
-#define LZBENCH_COMPRESSOR_COUNT 72
+#define LZBENCH_COMPRESSOR_COUNT 73
 
 static const compressor_desc_t comp_desc[LZBENCH_COMPRESSOR_COUNT] =
 {
@@ -204,6 +204,7 @@ static const compressor_desc_t comp_desc[LZBENCH_COMPRESSOR_COUNT] =
     { "yappy",      "2014-03-22",  0,  99,    0,       0, lzbench_yappy_compress,      lzbench_yappy_decompress,      lzbench_yappy_init,      NULL },
     { "zlib",       "1.2.11",      1,   9,    0,       0, lzbench_zlib_compress,       lzbench_zlib_decompress,       NULL,                    NULL },
     { "decompress", "dev",         0,   3,    0,       0, lzbench_decompress_compress, lzbench_decompress_decompress, NULL,                    NULL },
+    { "decompress_ns", "dev",      0,  12,    0,       0, lzbench_decompress_ns_compress, lzbench_decompress_ns_decompress, NULL,              NULL },
     { "zling",      "2018-10-12",  0,   4,    0,       0, lzbench_zling_compress,      lzbench_zling_decompress,      NULL,                    NULL },
     { "zstd",       "1.4.5",       1,  22,    0,       0, lzbench_zstd_compress,       lzbench_zstd_decompress,       lzbench_zstd_init,       lzbench_zstd_deinit },
     { "zstd_fast",  "1.4.5",       -5, -1,    0,       0, lzbench_zstd_compress,       lzbench_zstd_decompress,       lzbench_zstd_init,       lzbench_zstd_deinit },
